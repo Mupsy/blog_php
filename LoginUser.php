@@ -22,7 +22,7 @@ if (!$data) {
     // Vérification des informations
     if ($email == $data['Email'] && md5($password) ==$data['Password']) {
         echo "Utilisateur connecté !";
-        header("Location : index.php");
+        header("Location: index.php");
     } else {
         echo "Identifiants incorrects.";
     }

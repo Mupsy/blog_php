@@ -22,7 +22,7 @@ else if($email != $confirmemail){
     $sql = 'INSERT INTO utilisateurs (Name,Email,Password,IsAdmin) VALUES (?,?,?,0)';
     $result = $pdo ->prepare($sql);
     $result -> execute([$username,$email,$password]);
-    header('Location : login.php');
+    header('Location: login.php');
 }
 
 ?>
