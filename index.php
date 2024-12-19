@@ -55,7 +55,7 @@ try {
 <!-- HEADER -->
     <header>
         <div class="top-bar">
-            <a href="login.php" class="user-info"><img src="./svg/user.svg" alt="User Icon"><?php echo $_SESSION['usr_name']; ?></a>
+            <a href="profile.php" class="user-info"><img src="./svg/user.svg" alt="User Icon"><?php echo $_SESSION['usr_name']; ?></a>
         </div>
         <h1>Murmures Ailleurs</h1>
         <div class="night">
