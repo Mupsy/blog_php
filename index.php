@@ -4,6 +4,7 @@
 session_start();
 if(!isset($_SESSION['usr_id'])){
     header('Location: login.php');
+}
 
 // Inclusion de la connexion à la base de données
 include("ConnectToBDD.php");

@@ -10,7 +10,7 @@ background: transparent;
 backdrop-filter: blur(10px); /* Ajout de flou */
 color: white;
 flex: 1 1 30%; /* Tous les blocs prendront la même taille */
-max-width: 25%;
+max-width: 35%;
 text-align: center;
 padding: 10px 20px 60px 20px; /* Top, Right, Bottom, Left */
 border-radius: 15px;
@@ -21,7 +21,7 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-height: 460px; /* Force la même hauteur pour toutes */
+height: 430px; /* Force la même hauteur pour toutes */
 }
 
 .info-card:hover {
@@ -70,8 +70,8 @@ transform: translateY(-3px);
 .info-card-register input[type="text"],
 .info-card-register input[type="password"] {
     width: 90%; /* Ajuster selon vos besoins */
-    padding: 10px;
-    font-size: 1em;
+    padding: 7px;
+    font-size: 0.8em;
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -99,4 +99,76 @@ transform: translateY(-3px);
 
 .info-card-register span a:hover {
     text-decoration: underline;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espacement entre les colonnes */
+    width: 100%;
+}
+
+.form-left,
+.form-right {
+    flex: 1; /* Les deux colonnes prennent une largeur égale */
+}
+
+.form-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 15px; /* Espacement vertical entre les éléments */
+}
+
+.form-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatars {
+    display: grid; /* Utilise un grid pour une disposition uniforme */
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes de largeur égale */
+    gap: 15px; /* Espacement entre les images */
+    justify-items: center; /* Centrer les images horizontalement */
+    margin-bottom: 20px; /* Espacement en bas des images */
+}
+
+.avatar {
+    width: 70px; /* Taille ajustée des avatars */
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="radio"]:checked + img {
+    border: 3px solid red; /* Entoure l'image sélectionnée en rouge */
+    transform: scale(1.1); /* Agrandit légèrement l'image sélectionnée */
+}
+
+.register-button {
+    margin-top: 10px;
+    width: 200px; /* Largeur ajustée du bouton */
+    align-self: center;
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.register-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(21, 39, 59);
+    transform: translateY(-3px);
 }
