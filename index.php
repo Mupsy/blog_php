@@ -76,6 +76,17 @@ try {
                 <a href="register.php" class="register-button">S'inscrire</a>
             </div>
         </div>
+<!-- Bouton "?" -->
+<div class="help-button">?</div>
+
+<!-- Div qui s'affiche au clic -->
+<div class="help-popup" id="helpPopup">
+    <div class="popup-content">
+        <h2>Trouver un sujet</h2>
+        <p id="ideesDisplay">Cliquez sur "Générer" pour découvrir une idée !</p>
+        <button id="generateButton">Générer</button>
+    </div>
+</div>
 
 <!-- Flèche animée qui pointe vers le bas -->
         <div class="arrow arrow-first"></div>
@@ -116,14 +127,14 @@ try {
                 </a>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>Aucun résultat trouvé. <a href="start-conversation.php">Démarrer une conversation</a></p>
+            <p>Aucun résultat trouvé. <a href="index.php">Démarrer une conversation</a></p>
         <?php endif; ?>
     </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-    <p class="footer">&copy; 2023 Murmures Ailleurs. Tous droits réservés.</p>
+    <p class="footer">&copy; 2024 Murmures Ailleurs. Tous droits réservés.</p>
 </footer>
 </body>
 </html>

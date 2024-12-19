@@ -10,7 +10,7 @@ body {
 
 header {
     position: relative;
-    background: rgb(21, 39, 59);
+    background: linear-gradient(135deg, #132743, #25486f);
     color: white;
     text-align: center;
     height: 850px;
@@ -211,7 +211,112 @@ transform: translateY(-3px);
 }
 
 
+/* Bouton "?" */
+.help-button {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: #25486f;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
+.help-button:hover {
+    background-color: #132743;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Popup */
+.help-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: none; /* Caché par défaut */
+    z-index: 1100;
+}
+
+.help-popup .popup-content {
+    color: #25486f;
+    font-family: 'Roboto', sans-serif;
+}
+
+.help-popup h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.help-popup button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #25486f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.help-popup button:hover {
+    background-color: #132743;
+}
+
+#ideaDisplay {
+    margin: 20px 0;
+    font-size: 1.2em;
+    color: #25486f;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#ideaDisplay:hover {
+    transform: scale(1.05);
+}
+
+
+.bt2 {
+    position: fixed;
+    top: 50%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    font-weight: bold;
+    display: block; /* Afficher le bouton */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 50px; /* Centrer verticalement le contenu */
+    cursor: pointer;
+    z-index: 2500;
+}
 
 
 .container {
@@ -317,7 +422,7 @@ background-color: rgb(30, 50, 80);
 }
 
 footer {
-    background-color: rgb(21, 39, 59);
+    background: linear-gradient(135deg, #132743, #25486f);
     color: white;
     width: 100%;
     padding: 20px 40px;

@@ -10,7 +10,7 @@ window.addEventListener('scroll', () => {
         const content = `
             <div class="footer-content">
                 <div class="footer-left">
-                    <p><a href="about-us.html">Qui sommes-nous</a></p>
+                    <p><a href="propos-de-nous.html">Qui sommes-nous</a></p>
                     <p><br>
                         <span>123 Rue de l'Exemple, 59000 Lille</span><br>
                         <span>contact@murmuresailleurs.fr</span><br>
@@ -37,3 +37,48 @@ window.addEventListener('scroll', () => {
         footer.style.paddingTop = "0px"; // Rétablit la taille normale
     }
 });
+
+
+// Sélection des éléments
+const helpButton = document.querySelector('.help-button');
+const helpPopup = document.querySelector('#helpPopup');
+
+// Affiche ou masque la popup au clic sur le bouton "?"
+helpButton.addEventListener('click', () => {
+    if (helpPopup.style.display === 'none' || helpPopup.style.display === '') {
+        helpPopup.style.display = 'block';
+    } else {
+        helpPopup.style.display = 'none';
+    }
+});
+
+// Fermer la popup si on clique en dehors
+document.addEventListener('click', (event) => {
+    if (!helpPopup.contains(event.target) && event.target !== helpButton) {
+        helpPopup.style.display = 'none';
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const generateButton = document.getElementById('generateButton');
+    const ideaDisplay = document.getElementById('ideesDisplay');
+
+    generateButton.addEventListener('click', () => {
+        fetch('./idees.php')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                ideaDisplay.textContent = data;
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des idées :', error);
+                ideaDisplay.textContent = "Une erreur s'est produite. Réessayez. Vérifiez si le fichier idees.php est accessible.";
+            });
+    });
+});
+
+
