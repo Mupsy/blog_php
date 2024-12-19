@@ -2,7 +2,9 @@
 
 include("ConnectToBDD.php");
 
-if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])) {
+session_start();
+
+if (empty($_POST['username']) || empty($_POST['password']) ||  empty($_POST['email'])) {
     die("Tous les champs sont obligatoires !");
 }
 
@@ -21,6 +23,8 @@ if (!$data) {
 } else {
     // Vérification des informations
     if ($email == $data['Email'] && md5($password) ==$data['Password']) {
+        $_SESSION["usr_id"] = $data["id"];
+        $_SESSION['usr_name'] = $data['Name'];
         echo "Utilisateur connecté !";
         header("Location: index.php");
     } else {

@@ -25,7 +25,8 @@ $query = '
         ';
 
     $res = $pdo->prepare($query);
-    $res->execute($_GET['id']);
+    $res->execute([$_GET['id']]);
+
     $datas = $res->fetchAll();
 ?>
 

@@ -24,9 +24,13 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   `id` int NOT NULL AUTO_INCREMENT,
   `Contenu` text,
   `blogID` int DEFAULT NULL,
+  `userID` int DEFAULT NULL,
+  `datePubli` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `blogID` (`blogID`),
+  KEY `userID` (`userID`),
   CONSTRAINT `blogID` FOREIGN KEY (`blogID`) REFERENCES `topic` (`id`)
+  CONSTRAINT `userID` FOREIGN KEY (`userID`) REFERENCES `utilisateurs` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Les données exportées n'étaient pas sélectionnées.
