@@ -19,6 +19,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 } else {
     die("ID invalide.");
 }
+
+$query = '
+        SELECT * FROM commentaire WHERE blogID = ?;
+        ';
+
+    $res = $pdo->prepare($query);
+    $res->execute($_GET['id']);
+    $datas = $res->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +40,19 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <p><?php echo $contenu; ?></p>
     <small>Publié le : <?php echo $date; ?></small>
     <br>
+    <div class="commentaries">
+        <?php
+        
+        foreach ($datas as $row) {
+            echo '<div class="commentary">';
+            echo $row["userID"]; // faire un select pour get le user ID
+            echo $row["Contenu"];
+            echo $row["datePubli"];
+            echo '</div>';
+        }
+        
+        ?>
+    </div>
     <a href="index.php">Retour à l'accueil</a>
 </body>
 </html>
