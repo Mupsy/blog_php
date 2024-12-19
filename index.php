@@ -1,5 +1,7 @@
 <?php
 
+
+session_start();
 if(!isset($_SESSION['usr_id'])){
     header('Location: login.php');
 
@@ -12,11 +14,11 @@ try {
 
     // Requête SQL pour récupérer les articles en fonction de la recherche
     if (!empty($searchQuery)) {
-        $query = "SELECT id, Titre, Contenu, DatePubli FROM topic WHERE Titre LIKE :search";
+        $query = "SELECT * FROM topic WHERE Titre LIKE :search";
         $stmt = $pdo->prepare($query);
         $stmt->execute(['search' => '%' . $searchQuery . '%']);
     } else {
-        $query = "SELECT id, Titre, Contenu, DatePubli FROM topic";
+        $query = "SELECT * FROM topic";
         $stmt = $pdo->query($query); // Exécution de la requête avec PDO
     }
 
@@ -53,7 +55,7 @@ try {
 <!-- HEADER -->
     <header>
         <div class="top-bar">
-            <a href="login.php"><img src="./svg/user.svg" alt="User Icon"></a>
+            <a href="profile.php" class="user-info"><img src="./svg/user.svg" alt="User Icon"><?php echo $_SESSION['usr_name']; ?></a>
         </div>
         <h1>Murmures Ailleurs</h1>
         <div class="night">
@@ -147,7 +149,7 @@ try {
                             ? mb_strimwidth(htmlspecialchars($article['Contenu']), 0, 100, "[...]") 
                             : htmlspecialchars($article['Contenu'])) ?>
                     </p>
-                    <small>Publié le : <?= htmlspecialchars($article['DatePubli']) ?></small>
+                    <small>Publié le : <?= htmlspecialchars($article['DatePubli']); if(!is_null($article["DateModif"])){echo " - (Modifié le : " . $article["DateModif"] .").";} ?> </small>
                 </a>
             <?php endforeach; ?>
         <?php else: ?>

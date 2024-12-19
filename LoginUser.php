@@ -4,6 +4,8 @@ include("ConnectToBDD.php");
 
 session_start();
 
+session_start();
+
 if (empty($_POST['username']) || empty($_POST['password']) ||  empty($_POST['email'])) {
     die("Tous les champs sont obligatoires !");
 }
