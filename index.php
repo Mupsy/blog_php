@@ -41,7 +41,9 @@ try {
     <title>Murmures Ailleurs</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/chatbot.css">
     <script src="./js/index.js" defer></script>
+    <script src="./js/chatbot.js" defer></script>
 </head>
 <body>
 <!-- HEADER -->
@@ -85,6 +87,24 @@ try {
         <h2>Trouver un sujet</h2>
         <p id="ideesDisplay">Cliquez sur "Générer" pour découvrir une idée !</p>
         <button id="generateButton">Générer</button>
+    </div>
+</div>
+
+<!-- Bouton "?" -->
+<div class="bt2">?</div>
+
+
+<!-- Div qui s'affiche au clic, simulant un chatbot -->
+<div class="chatbot-popup" id="chatbotPopup">
+    <div class="chatbot-header">
+        <h2>Assistant Virtuel</h2>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages">
+        <p>Bienvenue ! Posez-moi une question.</p>
+    </div>
+    <div class="chatbot-input-container">
+        <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Écrivez un message...">
+        <button class="chatbot-send" id="chatbotSend">Envoyer</button>
     </div>
 </div>
 
