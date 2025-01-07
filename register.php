@@ -40,45 +40,7 @@
                     <label for="confirm_password">Confirmez votre mot de passe :</label>
                     <input type="password" placeholder="Entrez votre mot de passe" name="confirm_password" required>
                 </div>
-                <!-- Partie droite -->
-                <div class="form-right">
-                <label for="avatar">Choisir un avatar :</label>
-    <div class="avatars">
-   
-
-        <div>
-            <img class="avatar" src="./avatar/1.webp" alt="avatar1">
-            <input type="radio" name="imgSelect" value="1" required>
-
-                </div>
-        <div>
-            <img class="avatar" src="./avatar/2.webp" alt="avatar2">
-            <input type="radio" name="imgSelect" value="2">
-
-                </div>
-        <div>
-            <img class="avatar" src="./avatar/3.png" alt="avatar3">
-            <input type="radio" name="imgSelect" value="3">
-
-                </div>
-        <div>
-            <img class="avatar" src="./avatar/4.png" alt="avatar4">
-            <input type="radio" name="imgSelect" value="4">
-
-                </div>
-        <div>
-            <img class="avatar" src="./avatar/5.png" alt="avatar5">
-            <input type="radio" name="imgSelect" value="5">
-
-                </div>
-        <div>
-            
-            <img class="avatar" src="./avatar/6.webp" alt="avatar6">
-            <input type="radio" name="imgSelect" value="6">
-                </div>
-    </div>
-    <button class="register-button" type="submit">Créer mon compte</button>
-</div>
+            </div>
 
         </form>
     </div>
