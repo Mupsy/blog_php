@@ -1,7 +1,6 @@
 <?php
 
     session_start();
-    print_r($_POST);
 
     require("ConnectToBDD.php");
     $new_usrname = $_POST['username'];

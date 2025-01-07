@@ -51,7 +51,7 @@ try {
     <script src="./js/index.js" defer></script>
     <script src="./js/chatbot.js" defer></script>
 </head>
-<body>
+<div>
 <!-- HEADER -->
     <header>
         <div class="top-bar">
@@ -84,6 +84,9 @@ try {
         <?php else: ?>
             <p>Aucun résultat trouvé. <a href="index.php">Démarrer une conversation</a></p>
         <?php endif; ?>
+    </div>
+
+    <input>
     </div>
     
     <footer>

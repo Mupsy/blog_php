@@ -1,6 +1,6 @@
 <?php
 include("ConnectToBDD.php");
-
+session_start();
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = intval($_GET['id']);
 
@@ -49,6 +49,7 @@ $query = '
             echo $row["userID"]; // faire un select pour get le user ID
             echo $row["Contenu"];
             echo $row["datePubli"];
+            if($_SESSION["admin"]==1){echo "<a href='delCom.php?id=" . $row["id"]. "'>Supprimer</a>";}
             echo '</div>';
         }
         
