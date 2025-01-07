@@ -80,9 +80,9 @@ try {
                 <p>De l'actualité aux sujets de niche, explorez ce qui vous inspire.</p>
             </div>
             <div class="info-card">
-                <h3>Inscrivez-vous gratuitement</h3>
-                <p>Accédez à toutes les fonctionnalités, participez aux discussions et créez vos propres topics.</p>
-                <a href="register.php" class="register-button">S'inscrire</a>
+                <h3>Créez un article ici</h3>
+                <p>Cliquez ici pour créer un nouvel article </p>
+                <a href="createArticle.php" class="register-button">Créer un article</a>
             </div>
         </div>
 <!-- Bouton "?" -->
@@ -157,6 +157,7 @@ try {
             <p>Aucun résultat trouvé. <a href="index.php">Démarrer une conversation</a></p>
         <?php endif; ?>
     </div>
+
 </div>
 
 <!-- FOOTER -->

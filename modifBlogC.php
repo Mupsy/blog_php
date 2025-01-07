@@ -2,7 +2,6 @@
 
     session_start();
 
-    print_r($_POST);
     require("ConnectToBDD.php");
 
     $new_title = $_POST["titre"];
