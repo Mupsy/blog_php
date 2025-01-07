@@ -3,6 +3,7 @@
     include("ConnectToBDD.php");
     session_start();
 
+    print_r($_SESSION);
     $sql = "SELECT * from utilisateurs where Name = ?";
     $result = $pdo->prepare($sql);
     $result->execute([$_SESSION["usr_name"]]);
@@ -41,6 +42,7 @@
                 <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" />
                 <p class="name"><?php echo $_SESSION["usr_name"]; ?></p>
                 <p class="mail"><?php echo $data["Email"]; ?></p>
+                <?php if($_SESSION["admin"] == 1){echo "<a href='adminPage.php' class='admin'>Administration</a><br>";}else{echo $_SESSION["admin"];} ?>
                 <a href="editProfile.php" class="edit">Modifier le Profil</a><br>
                 <a href="disconnect.php" class="disconnect">Se Déconnecter</a>
             </div>

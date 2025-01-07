@@ -27,6 +27,7 @@ if (!$data) {
     if ($email == $data['Email'] && md5($password) ==$data['Password']) {
         $_SESSION["usr_id"] = $data["id"];
         $_SESSION['usr_name'] = $data['Name'];
+        $_SESSION["admin"] = $data["IsAdmin"];
         echo "Utilisateur connecté !";
         header("Location: index.php");
     } else {
