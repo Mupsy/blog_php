@@ -1,10 +1,3 @@
--- --------------------------------------------------------
--- Hôte:                         127.0.0.1
--- Version du serveur:           8.0.30 - MySQL Community Server - GPL
--- SE du serveur:                Win64
--- HeidiSQL Version:             12.1.0.6537
--- --------------------------------------------------------
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
@@ -14,12 +7,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
--- Listage de la structure de la base pour blog
 CREATE DATABASE IF NOT EXISTS `blog` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `blog`;
 
--- Listage de la structure de table blog. commentaire
 CREATE TABLE IF NOT EXISTS `commentaire` (
   `id` int NOT NULL AUTO_INCREMENT,
   `Contenu` text,
@@ -28,14 +18,11 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   `datePubli` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `blogID` (`blogID`),
-  KEY `userID` (`userID`),
-  CONSTRAINT `blogID` FOREIGN KEY (`blogID`) REFERENCES `topic` (`id`)
-  CONSTRAINT `userID` FOREIGN KEY (`userID`) REFERENCES `utilisateurs` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FK_commentaire_utilisateurs` (`userID`),
+  CONSTRAINT `blogID` FOREIGN KEY (`blogID`) REFERENCES `topic` (`id`),
+  CONSTRAINT `FK_commentaire_utilisateurs` FOREIGN KEY (`userID`) REFERENCES `utilisateurs` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Les données exportées n'étaient pas sélectionnées.
-
--- Listage de la structure de table blog. topic
 CREATE TABLE IF NOT EXISTS `topic` (
   `id` int NOT NULL AUTO_INCREMENT,
   `Titre` text,
@@ -43,13 +30,12 @@ CREATE TABLE IF NOT EXISTS `topic` (
   `DatePubli` date DEFAULT NULL,
   `IsVisible` int DEFAULT NULL,
   `userID` int DEFAULT NULL,
+  `DateModif` date DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `userID` FOREIGN KEY (`id`) REFERENCES `utilisateurs` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `userID` (`userID`),
+  CONSTRAINT `userID` FOREIGN KEY (`userID`) REFERENCES `utilisateurs` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Les données exportées n'étaient pas sélectionnées.
-
--- Listage de la structure de table blog. utilisateurs
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `id` int NOT NULL AUTO_INCREMENT,
   `Name` text,
@@ -57,9 +43,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `Password` text,
   `IsAdmin` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- Les données exportées n'étaient pas sélectionnées.
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
