@@ -31,16 +31,31 @@ $query = '
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $titre; ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murmures Ailleurs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/profile.css">
+    <script src="./js/index.js" defer></script>
+    <script src="./js/chatbot.js" defer></script>
 </head>
 <body>
-    <h1><?php echo $titre; ?></h1>
-    <p><?php echo $contenu; ?></p>
-    <small>Publié le : <?php echo $date; ?></small>
-    <br>
+<!-- HEADER -->
+    <header>
+        <div class="top-bar">
+            <a href="profile.php" class="user-info"><img src="./svg/user.svg" alt="User Icon"><?php echo $_SESSION['usr_name']; ?></a>
+        </div>
+        <h1>Topic <?= htmlspecialchars($article["Titre"]); ?></h1>
+        <div class="night">
+            
+<!-- Génération des étoiles -->
+            <?php for ($i = 0; $i < 20; $i++): ?>
+                <div class="shooting_star" style="top: <?= rand(10, 90) ?>%; left: <?= rand(0, 100) ?>%; animation-delay: <?= rand(0, 5) ?>s;"></div>
+            <?php endfor; ?>
+        </div>
+        <?= htmlspecialchars($article["Contenu"]) ?>
     <div class="commentaries">
         <?php
         
@@ -56,5 +71,14 @@ $query = '
         ?>
     </div>
     <a href="index.php">Retour à l'accueil</a>
-</body>
+    </header>
+    
+    
+
+    <footer>
+        <p class="footer">&copy; 2024 Murmures Ailleurs. Tous droits réservés.</p>
+    </footer>
+
+    </body>
+
 </html>
